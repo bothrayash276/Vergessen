@@ -79,9 +79,9 @@ const Register = () => {
                 border-l border-t border-b rounded-l-lg'/>
                 <input 
                 type="text"
-                id='text'
+                id='name'
                 onChange={handleChange}
-                placeholder='Email'
+                placeholder='Name'
                 className='text-white outline-none p-2 px-4
                 border rounded-r-lg' />
               </div>
