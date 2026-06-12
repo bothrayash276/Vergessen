@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 
-const UpdateContext = createContext()
+export const UpdateContext = createContext()
 
 export function UpdateProvider({children}) {
     const [tick, setTick] = useState(0)
