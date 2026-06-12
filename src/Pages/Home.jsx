@@ -17,7 +17,7 @@ const Home = () => {
 
       if (!accessToken) navigate('/login')
 
-      const BACKEND = import.meta.env.BACKEND
+      const BACKEND = import.meta.env.VITE_BACKEND
 
       const response = await fetch(`${BACKEND}/user`, {
         'method' : 'GET',

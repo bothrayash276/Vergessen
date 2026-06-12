@@ -23,7 +23,7 @@ const Register = () => {
   const handleRegister = async () => {
     if (!name || !email || !password) setError(true)
 
-    const BACKEND = import.meta.env.BACKEND
+    const BACKEND = import.meta.env.VITE_BACKEND
 
     const payload = {
       'name' : name,

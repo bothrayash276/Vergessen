@@ -22,7 +22,7 @@ const DisplayCard = ({id, title, paragraph}) => {
 
     
     const handleDelete = async () => {
-        const BACKEND = import.meta.env.BACKEND
+        const BACKEND = import.meta.env.VITE_BACKEND
         const response = await fetch(`${BACKEND}/notes`, {
             'method' : 'POST',
             headers : {

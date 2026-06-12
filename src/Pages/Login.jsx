@@ -25,7 +25,8 @@ const Login = () => {
       'password' : password
     }
 
-    const BACKEND = import.meta.env.BACKEND
+    const BACKEND = import.meta.env.VITE_BACKEND
+    console.log(BACKEND)
 
     const response = await fetch(`${BACKEND}/login`, {
       'method' : 'POST',

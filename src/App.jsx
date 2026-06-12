@@ -4,6 +4,7 @@ import Home from './Pages/Home.jsx'
 import Login from './Pages/Login.jsx'
 import Note from './Pages/Note.jsx'
 import Register from './Pages/Register.jsx'
+import NewNote from './Pages/NewNote.jsx'
 
 const App = () => {
   return (
@@ -20,8 +21,14 @@ const App = () => {
 
         {/* Individual Note page route */}
         <Route 
-          path='/:uid'
+          path='/:id'
           element={ <Note/> }
+        />
+
+        {/* New Note page route */}
+        <Route 
+          path='/newNote'
+          element={ <NewNote/> }
         />
 
         {/* Login page route */}

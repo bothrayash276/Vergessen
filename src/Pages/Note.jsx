@@ -13,22 +13,23 @@ const Note = () => {
 
   const navigate = useNavigate()
 
+  const {id} = useParams()
+
   useEffect( () => {
-    async function loadUser() {
+    const loadUser = async () => {
       try {
 
         const accessToken = localStorage.getItem('accessToken')
 
         if (!accessToken) navigate('/login')
 
-        const {id} = useParams()
 
-        const BACKEND = import.meta.env.BACKEND
+        const BACKEND = import.meta.env.VITE_BACKEND
 
         const response = await fetch(`${BACKEND}/particular`, {
           'method' : 'GET',
           headers : {
-            accessToken : accessToken,
+            access : accessToken,
             id : id
           }
         })
@@ -36,13 +37,12 @@ const Note = () => {
         if (!response.ok) navigate('/login')
 
         const note = await response.json()
-
         setUser(note)
         setTitle(note.title)
         setParagraph(note.paragraph)
 
       } catch (e) {
-        
+        console.log(e)
       }
       finally {
         setLoading(false)
@@ -55,7 +55,7 @@ const Note = () => {
 
 
   const handleDelete = async () => {
-    const BACKEND = import.meta.env.BACKEND
+    const BACKEND = import.meta.env.VITE_BACKEND
 
     const response = await fetch(`${BACKEND}/notes`, {
       'method' : 'POST',
@@ -93,7 +93,7 @@ const Note = () => {
             id='title'
             onChange={handleChange}
             defaultValue={user.title.toUpperCase()}
-            className='flex-1 outline-none text-xl' />
+            className='flex-1 outline-none text-4xl font-[Secular_One] text-[#0088ff]' />
 
             <div
             onChange={handleDelete}
@@ -106,7 +106,7 @@ const Note = () => {
           <textarea 
           defaultValue={user.paragraph}
           onChange={handleChange}
-          className='h-full w-full'>
+          className='h-full w-full outline-none'>
 
           </textarea>
 
