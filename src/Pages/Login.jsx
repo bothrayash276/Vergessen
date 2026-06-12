@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Error from '../Components/Error.jsx'
 import Header from '../Components/Header'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
 
@@ -70,6 +71,7 @@ const Login = () => {
                 border-l border-t border-b rounded-l-lg'/>
                 <input 
                 type="email"
+                id='email'
                 onChange={handleChange}
                 placeholder='Email'
                 className='text-white outline-none p-2 px-4
@@ -90,6 +92,7 @@ const Login = () => {
                 border-l border-t border-b rounded-l-lg'/>
                 <input 
                 type="password"
+                id='password'
                 placeholder='Password'
                 onChange={handleChange}
                 className='text-white outline-none p-2 px-4
@@ -110,6 +113,12 @@ const Login = () => {
             className='bg-[#0088ff] rounded-xl px-2 cursor-pointer'>
               Sign In
             </div>
+
+            <Link
+            to={'/register'}
+            className='text-sm text-[#0088ff] hover:underline'>
+              Create a new account
+            </Link>
 
           </div>
 
