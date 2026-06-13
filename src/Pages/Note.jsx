@@ -85,14 +85,16 @@ const Note = () => {
 
   const handleDelete = async () => {
     const BACKEND = import.meta.env.VITE_BACKEND
+    
 
     const response = await fetch(`${BACKEND}/notes`, {
       'method' : 'POST',
       headers : {
         'access' : localStorage.getItem('accessToken'),
-        'task' : 'delete'
+        'task' : 'delete',
+        'Content-Type' : 'application/json'
       },
-      body : JSON.stringify({'id' : useParams().id})
+      body : JSON.stringify({'id' : id})
     })
 
     if (response.ok) navigate('/')
@@ -137,13 +139,13 @@ const Note = () => {
 
             
           <div
-          onChange={handleUpdate}
+          onClick={handleUpdate}
           className='bg-[#0088ff] rounded-xl px-2'>
             Update
           </div>  
 
             <div
-            onChange={handleDelete}
+            onClick={handleDelete}
             className='px-2 bg-red-600 rounded-xl'>
               Delete
             </div>
