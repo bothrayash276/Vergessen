@@ -1,16 +1,168 @@
-# React + Vite
+# 📝 Vergessen
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Vergessen is a modern note-taking application built with **React**, **Vite**, **JavaScript**, and **Tailwind CSS**. It allows users to create an account, sign in, and manage their notes through a clean and responsive interface.
 
-Currently, two official plugins are available:
+The name **Vergessen** comes from the German word meaning *"to forget"*. The application helps users store important information in one place so they never have to worry about forgetting it.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🔐 Authentication
+- User Registration
+- User Login
+- Session-based access to notes
 
-## Expanding the ESLint configuration
+### 📝 Notes Management
+- Create Notes
+- View Notes
+- Edit Notes
+- Delete Notes
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 📱 Responsive Design
+- Mobile Friendly
+- Desktop Friendly
+
+### 🎨 Modern Interface
+- Dark Theme UI
+- Clean and Minimal Design
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React
+- Vite
+- JavaScript
+- Tailwind CSS
+
+### Backend
+- REST API (External Backend Server)
+
+---
+
+## 📂 Project Structure
+
+```bash
+src/
+├── Components/
+│   ├── DisplayCard.jsx
+│   ├── Error.jsx
+│   ├── Header.jsx
+│   └── UpdateContext.jsx
+│
+├── Pages/
+│   ├── Home.jsx
+│   ├── Login.jsx
+│   ├── NewNote.jsx
+│   ├── Note.jsx
+│   └── Register.jsx
+│
+├── App.jsx
+├── App.css
+├── index.css
+└── main.jsx
+```
+
+---
+
+## 🚀 Installation
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/bothrayash276/Vergessen.git
+```
+
+### Move into the Project Directory
+
+```bash
+cd vergessen
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Create Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+VITE_BACKEND=your_backend_api_url
+```
+
+### Run the Development Server
+
+```bash
+npm run dev
+```
+
+The application will start on:
+
+```bash
+http://localhost:5173
+```
+
+---
+
+## 📖 Usage
+
+### Create an Account
+1. Navigate to the Register page.
+2. Enter your details.
+3. Create your account.
+
+### Sign In
+1. Enter your email and password.
+2. Click **Sign In**.
+
+### Create a Note
+1. Click **Add One**.
+2. Enter the title and content.
+3. Save the note.
+
+### Edit a Note
+1. Open an existing note.
+2. Click **Edit/Update**.
+3. Modify the content.
+4. Save changes.
+
+### Delete a Note
+1. Open a note.
+2. Click **Delete**.
+
+---
+
+## 📸 Screenshots
+
+### Login Page
+
+![Login Page](./screenshots/login.png)
+
+### Register Page
+
+![Register Page](./screenshots/register.png)
+
+### Home Page
+
+![Home Page](./screenshots/homepage.png)
+
+### Create or Edit Note
+
+![Create Note](./screenshots/newnote.png)
+
+### Note Details
+
+![Note Details](./screenshots/editnote.png)
+
+---
+
+
+
+## 👨‍💻 Author
+
+**Yash Bothra**
