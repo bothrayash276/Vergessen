@@ -55,8 +55,12 @@ const Note = () => {
 
 
   const [updateMSG, setUpdateMSG] = useState(false)
+  const [empty, setEmpty] = useState(false)
 
   const handleUpdate = async () => {
+
+    if(!title || !paragraph) return setEmpty(true)
+
     const BACKEND = import.meta.env.VITE_BACKEND
 
     const payload = {
@@ -68,6 +72,7 @@ const Note = () => {
     const response = await fetch(`${BACKEND}/notes`, {
       'method' : 'POST',
       headers : {
+        'Content-Type' : 'application/json',
         'access' : localStorage.getItem('accessToken'),
         'task' : 'update'
       },
@@ -101,6 +106,7 @@ const Note = () => {
   }
 
   const handleChange = (e) => {
+    setEmpty(false)
     if (e.target.id === 'title') setTitle(e.target.value)
     if (e.target.id === 'paragraph') setParagraph(e.target.value)
   }
@@ -127,6 +133,11 @@ const Note = () => {
           </div>
 
           <div
+          className={`bg-red-600 rounded-xl px-2 fixed right-10 top-50 ${empty ? "" : "hidden"}`}>
+            Field cannot be empty!
+          </div>
+
+          <div
           className='flex gap-3 items-center'>
 
 
@@ -140,13 +151,13 @@ const Note = () => {
             
           <div
           onClick={handleUpdate}
-          className='bg-[#0088ff] rounded-xl px-2'>
+          className='bg-[#0088ff] rounded-xl px-2 text-sm cursor-pointer'>
             Update
           </div>  
 
             <div
             onClick={handleDelete}
-            className='px-2 bg-red-600 rounded-xl'>
+            className='px-2 bg-red-600 rounded-xl text-sm cursor-pointer'>
               Delete
             </div>
 
@@ -155,9 +166,10 @@ const Note = () => {
 
           <textarea
           onInput={handleInput} 
+          id='paragraph'
           defaultValue={user.paragraph}
           onChange={handleChange}
-          className='w-full outline-none resize-none'>
+          className='w-full outline-none resize-none min-h-80'>
 
           </textarea>
 
