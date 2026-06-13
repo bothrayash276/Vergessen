@@ -2,8 +2,11 @@ import React, { useState } from 'react'
 import Error from '../Components/Error.jsx'
 import Header from '../Components/Header'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
+
+  const navigate = useNavigate()
 
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
@@ -26,7 +29,6 @@ const Login = () => {
     }
 
     const BACKEND = import.meta.env.VITE_BACKEND
-    console.log(BACKEND)
 
     const response = await fetch(`${BACKEND}/login`, {
       'method' : 'POST',
@@ -41,7 +43,9 @@ const Login = () => {
     const {message, access} = await response.json()
 
     localStorage.setItem('accessToken', access)
+    navigate('/')
   }
+
 
   return (
     <>

@@ -54,6 +54,35 @@ const Note = () => {
   } , [])
 
 
+  const [updateMSG, setUpdateMSG] = useState(false)
+
+  const handleUpdate = async () => {
+    const BACKEND = import.meta.env.VITE_BACKEND
+
+    const payload = {
+      'id' : user.id,
+      'title' : title,
+      'paragraph' : paragraph
+    }
+
+    const response = await fetch(`${BACKEND}/notes`, {
+      'method' : 'POST',
+      headers : {
+        'access' : localStorage.getItem('accessToken'),
+        'task' : 'update'
+      },
+      body : JSON.stringify(payload)
+    })
+
+
+    if (response.ok) {
+      setUpdateMSG(true)
+      setTimeout(() => {
+        setUpdateMSG(false)
+      }, 2000);
+    }
+  }
+
   const handleDelete = async () => {
     const BACKEND = import.meta.env.VITE_BACKEND
 
@@ -74,6 +103,11 @@ const Note = () => {
     if (e.target.id === 'paragraph') setParagraph(e.target.value)
   }
 
+  const handleInput = (e) => {
+    e.target.style.height = "auto"
+    e.target.style.height = `${e.target.scrollHeight}px`
+  }
+
   if (loading) return
 
   return (
@@ -86,7 +120,13 @@ const Note = () => {
           </div>
 
           <div
+          className={`bg-green-600 rounded-xl px-2 fixed right-10 top-50 ${updateMSG ? "" : "hidden"}`}>
+            Updated Successfully!
+          </div>
+
+          <div
           className='flex gap-3 items-center'>
+
 
             <input 
             type="text"
@@ -95,22 +135,31 @@ const Note = () => {
             defaultValue={user.title.toUpperCase()}
             className='flex-1 outline-none text-4xl font-[Secular_One] text-[#0088ff]' />
 
+            
+          <div
+          onChange={handleUpdate}
+          className='bg-[#0088ff] rounded-xl px-2'>
+            Update
+          </div>  
+
             <div
             onChange={handleDelete}
             className='px-2 bg-red-600 rounded-xl'>
               Delete
             </div>
 
+
           </div>
 
-          <textarea 
+          <textarea
+          onInput={handleInput} 
           defaultValue={user.paragraph}
           onChange={handleChange}
-          className='h-full w-full outline-none'>
+          className='w-full outline-none resize-none'>
 
           </textarea>
 
-
+          
 
          </div>
     </>
