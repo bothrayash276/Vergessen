@@ -20,9 +20,23 @@ const DisplayCard = ({id, title, paragraph}) => {
         return s
     }
 
+    const titleTruc = (e) => {
+        if (e.length <= 14) return e.toUpperCase()
+
+        let s = ""
+
+        for ( let i = 0; i <= 14; i++ ){
+            s += e[i]
+        }
+        s += "..."
+
+        return s.toUpperCase()
+    }
+
     
     const handleDelete = async () => {
         const BACKEND = import.meta.env.VITE_BACKEND
+
         const response = await fetch(`${BACKEND}/notes`, {
             'method' : 'POST',
             headers : {
@@ -50,7 +64,7 @@ const DisplayCard = ({id, title, paragraph}) => {
             {/* Title */}
             <div
             className='font-[Secular_One] text-[24px] text-[#0088ff]'>
-                {title.toUpperCase()}
+                {titleTruc(title)}
             </div>
 
             {/* Paragraph */}

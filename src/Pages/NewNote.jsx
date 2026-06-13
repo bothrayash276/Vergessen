@@ -64,13 +64,13 @@ const NewNote = () => {
 
 
           <div
-          className={`bg-green-600 rounded-xl px-2 fixed right-20 top-50 ${success ? "" : "hidden"}`}>
+          className={`bg-green-600 rounded-xl px-2 fixed right-8 top-28 ${success ? "" : "hidden"}`}>
             Note added successfully!
           </div>
 
 
           <div
-          className={`bg-red-600 rounded-xl px-2 fixed right-20 top-50 ${empty ? "" : "hidden"}`}>
+          className={`bg-red-600 rounded-xl px-2 fixed right-8 top-28 ${empty ? "" : "hidden"}`}>
             Note cannot be empty!
           </div>
 
@@ -90,7 +90,7 @@ const NewNote = () => {
 
           <div
           onClick={handleSave}
-          className='bg-green-600 rounded-xl px-2'>
+          className='bg-green-600 rounded-xl px-2 cursor-pointer'>
             Save
           </div>
 
